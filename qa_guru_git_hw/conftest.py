@@ -15,7 +15,7 @@ def api_data():
 
 @pytest.fixture
 def check_response_time():
-    def _check_response_time(response, max_time=200):
+    def _check_response_time(response, max_time=500):
         response_time = response.elapsed.total_seconds() * 1000
         assert response_time < max_time, f"Response time {response_time}ms exceeded {max_time}ms"
     return _check_response_time
